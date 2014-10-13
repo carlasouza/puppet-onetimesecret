@@ -1,4 +1,4 @@
-# ontimesecret
+# onetimesecret
 
 [One-Time Secret](http://onetimesecret.com) is a small webapp to share sensitive data with a link that can be viewed only one time.
 
