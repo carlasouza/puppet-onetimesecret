@@ -1,0 +1,14 @@
+{
+  "name": "carlasouza-ontimesecret",
+  "version": "0.0.1",
+  "author": "Carla Souza",
+  "summary": "Install and configure your instance of One-Time Secret",
+  "license": "GPLv3+",
+  "source": "github.com/carlasouza/puppet-onetimesecret",
+  "project_page": "https://github.com/carlasouza/puppet-onetimesecret",
+  "issues_url": "https://github.com/carlasouza/puppet-onetimesecret/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
