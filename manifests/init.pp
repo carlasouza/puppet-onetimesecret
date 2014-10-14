@@ -22,7 +22,7 @@ class ontimesecret {
   }
 
   # Dependencies
-  package { [ 'redis-server', 'ntp', 'build-essential', 'libyaml-dev', 'libevent-dev',
+  package { [ 'redis-server', 'ntp', 'build-essential', 'libyaml-dev', 'libevent-dev', 'unzip',
               'zlib1g', 'zlib1g-dev', 'openssl', 'libssl-dev', 'libxml2', 'wget' ]:
     ensure => installed
   }
@@ -43,12 +43,13 @@ class ontimesecret {
     unless  => '/usr/bin/test -f /etc/onetime/config',
     command => '/usr/bin/wget -q -O /tmp/onetime.zip https://github.com/onetimesecret/onetimesecret/archive/master.zip',
     creates => '/tmp/onetime.zip',
+    require => Package['wget'],
     notify  => Exec['unpack']
   }
 
   exec { 'unpack':
     command     => '/usr/bin/unzip /tmp/onetime.zip -d /var/lib/onetime/ && /bin/mv /var/lib/onetime/onetimesecret-master/* /var/lib/onetime/',
-    require     => File['/var/lib/onetime'],
+    require     => [File['/var/lib/onetime'], Package['unzip']],
     notify      => Exec['bundle'],
     user        => 'ots',
     refreshonly => true
