@@ -6,11 +6,12 @@
 
 Include this class on your node to have One-Time Secret running with default configuration
 
-    `include onetimesecret`
+    include onetimesecret
 
 ## Limitations
 
-Tested on Ubuntu 14.04 only
+The application generates a link that uses a preconfigured domain and port. Right now it is only generating using `localhost:80`.
+Tested on Ubuntu 14.04 only.
 
 ## Development
 
